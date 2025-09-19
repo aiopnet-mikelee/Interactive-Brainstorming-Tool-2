@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* App styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: #f8f9fa;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #343a40;
+  font-size: 1.5rem;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-header button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  background-color: white;
+  color: #495057;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.app-header button:hover {
+  background-color: #e9ecef;
+}
+
+.app-header button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+/* Planning State View styles */
+.planning-state-view {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.planning-state-view h2 {
+  margin-bottom: 2rem;
+  color: #343a40;
+  text-align: center;
+}
+
+.planning-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.planning-section {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.planning-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.state-container p {
+  margin-bottom: 1rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.state-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.state-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* ET Matrix styles */
+.et-matrix {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.et-matrix h2 {
+  margin-bottom: 2rem;
+  color: #343a40;
+  text-align: center;
+}
+
+.matrix-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matrix-labels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.y-axis-label {
+  position: absolute;
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-weight: bold;
+  color: #495057;
+}
+
+.x-axis-label {
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: #495057;
+}
+
+.matrix-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.matrix-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.matrix-row.axis-row {
+  justify-content: flex-end;
+}
+
+.axis-label {
+  min-width: 60px;
+  text-align: center;
+  font-weight: bold;
+  color: #495057;
+}
+
+.matrix-cell {
+  width: 250px;
+  height: 200px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+.matrix-cell:hover {
+  border-color: #007bff;
+}
+
+.matrix-cell.high-impact.low-effort {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.matrix-cell.high-impact.high-effort {
+  border-color: #ffc107;
+  background-color: #fffef8;
+}
+
+.matrix-cell.low-impact.low-effort {
+  border-color: #6c757d;
+  background-color: #f8f9fa;
+}
+
+.matrix-cell.low-impact.high-effort {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+.cell-header {
+  margin-bottom: 1rem;
+}
+
+.cell-header h4 {
+  margin: 0 0 0.5rem 0;
+  color: #343a40;
+  font-size: 1rem;
+}
+
+.cell-subtitle {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.cell-input {
+  flex: 1;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: none;
+}
+
+.cell-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .app-main {
+    padding: 1rem;
+  }
+  
+  .planning-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .matrix-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .matrix-cell {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .axis-label {
+    min-width: auto;
+  }
+}
